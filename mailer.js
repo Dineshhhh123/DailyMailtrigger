@@ -95,6 +95,15 @@ cron.schedule("0 21 * * *", () => {
   } else {
     console.log("🎉 All 28 days completed!");
   }
+},{
+  scheduled: true,
+  timezone: "Asia/Kolkata"
 });
+
+const http = require("http");
+http.createServer((req, res) => {
+  res.write("Mailer running!");
+  res.end();
+}).listen(3000);
 
 console.log("🚀 Mailer service started, waiting for 9 AM to send emails...");
